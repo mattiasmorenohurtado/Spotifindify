@@ -1,0 +1,23 @@
+nav {
+  
+  padding: 10px 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: right;
+}
+
+nav button {
+  background-color: transparent;
+  border: 5px solid   ;
+  color: #1db954 ;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+nav button:hover {
+  border-color: aliceblue;
+  color: whitesmoke;
+}
