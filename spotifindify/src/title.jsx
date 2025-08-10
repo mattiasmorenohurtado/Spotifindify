@@ -1,12 +1,13 @@
 import { useState , useEffect} from 'react'
+import HomePage from './HomePage'
+import LandingPage from './LandingPage'
 
-import './title.css'
 
 const spotifyLoginUrl = "https://accounts.spotify.com/authorize"
 const clientId = import.meta.env.VITE_SPOTIFY_CLIENT_ID
 const redirectUri = "http://127.0.0.1:5178/callback"
 
-function Title(){
+function Auth(){
     const [isLoggingIn,setIsLoggingIn] =useState(false);
     const [isLoggedIn, setIsLoggedIn] = useState(false);  
 
@@ -67,7 +68,6 @@ function Title(){
     }
 
     useEffect(() => {
-    
         const urlParams = new URLSearchParams(window.location.search)
         const code = urlParams.get('code')
         
@@ -86,48 +86,11 @@ function Title(){
         )
     }
 
-    if (isLoggedIn === true){
-        return(
-            <div className='Home-page'>
-                <h2>Welcome Back!</h2>
-                <button onClick={Logout}>Logout</button>
-            </div>
-        )
+    if (isLoggedIn) {
+        return <HomePage onLogout={Logout} />
     }
 
+    return <LandingPage onLogin={Login} />
+}
 
-
-
-
-
-
-
-
-
-
-
-
-        return (
-        <div className="title-container">
-            <img src="/logo.svg" alt="Spotifindify Logo" className="title-logo" />
-            <h1 className="title-heading">Spotifindify</h1>
-            <button onClick={Login}>Log In</button>
-            
-        </div>
-    )
-    }
-
-
-    
-   
-
-
-    
-
-
-
-
-
-
-
-export default Title
+export default Auth

@@ -1,12 +1,12 @@
 import Navbar from "./nav-bar"
-import Title from "./title"
+import Auth from "./title"
 
 
 function App() {
   return (
     <div>
       <Navbar/>
-      <Title />
+      <Auth />
     </div>
   )
 }
